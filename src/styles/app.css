@@ -1,0 +1,249 @@
+.library {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 100%;
+  background: #32522b;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.205);
+  overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+.library h2 {
+  padding: 2rem;
+}
+
+.library-song {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem 1rem 2rem;
+}
+.library-song img {
+  width: 30%;
+}
+.library-song:hover {
+  background: rgb(120, 248, 160);
+}
+
+.song-description {
+  padding-left: 1rem;
+}
+.song-description h3 {
+  color: #ffffff;
+  font-size: 1rem;
+}
+.song-description h4 {
+  color: gray;
+  font-size: 0.7rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 183, 183);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(221, 221, 221);
+}
+
+.selected {
+  background: rgb(255, 230, 255);
+}
+.selected h3 {
+  color: #306b26;
+}
+
+.active {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .library {
+    width: 100%;
+  }
+}
+/* FileName: player.scss */
+.player {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-control {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.time-control input {
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.time-control p {
+  padding: 1rem;
+  font-weight: 700;
+}
+
+.play-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 12%;
+}
+.play-control svg {
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 50%;
+  background: transparent;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+}
+
+.track {
+  background: lightblue;
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.animate-track {
+  background: rgb(204, 204, 204);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(0%);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+  .play-control {
+    width: 80%;
+  }
+}
+/* FileName: song.scss */
+.song-container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.song-container img {
+  width: 20%;
+}
+.song-container h2 {
+  padding: 3rem 1rem 1rem 1rem;
+}
+.song-container h3 {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .song-container img {
+    width: 60%;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotateSong {
+  animation: rotate 20s linear forwards infinite;
+}
+
+/*FileName: nav.scss */
+h1,
+h4 {
+  color: rgb(9, 70, 9);
+}
+
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+nav button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20%;
+  border: 2px solid rgb(41, 216, 25);
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+}
+nav button:hover {
+  background: rgb(89, 219, 77);
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  nav button {
+    z-index: 10;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy", sans-serif;
+}
+
+body {
+  background: rgb(231, 235, 214);
+  background: linear-gradient(
+    180deg,
+    rgb(205, 255, 207) 0%,
+    rgb(0, 255, 51) 100%
+  );
+}
+
+h2,
+h3 {
+  color: #133a1b;
+}
+
+h3,
+h4 {
+  font-weight: 600;
+}
+
+button {
+  font-weight: 700;
+}
