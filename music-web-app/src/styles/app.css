@@ -1,0 +1,356 @@
+.library {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 100%;
+  background: #32522b;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.205);
+  flex-direction: column;
+  overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+.library h2 {
+  padding: 2rem;
+}
+
+.library-song {
+  align-items: center;
+  display: flex;
+  padding: 1rem 2rem 1rem 2rem;
+}
+.library-song img {
+  width: 30%;
+}
+.library-song:hover {
+  background: rgb(120, 248, 160);
+}
+.library-icon {
+  width: 4rem;
+  height: 4rem;
+}
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+}
+.library-header button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.library-header button:hover {
+  background: rgba(201, 255, 196, 0.2);
+  border-radius: 0.2rem;
+  color: white;
+}
+.add-song-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(245, 245, 245, 0.4);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.add-song-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 0.2rem;
+}
+.add-song-form button {
+  background: #32522b;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+.add-song-form button:hover {
+  background: #306b26;
+}
+
+.song-description {
+  padding-left: 1rem;
+}
+.song-description h3 {
+  color: #060101;
+  font-size: 1rem;
+}
+.song-description h4 {
+  color: gray;
+  font-size: 0.7rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 183, 183);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(221, 221, 221);
+}
+
+.selected {
+  background: rgb(255, 230, 255);
+}
+.selected h3 {
+  color: #306b26;
+}
+
+.active {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .library {
+    width: 100%;
+  }
+}
+/* player */
+.player {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-control {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.time-control input {
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.time-control p {
+  padding: 1rem;
+  font-weight: 700;
+}
+
+.play-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 12%;
+}
+.play-control svg {
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 50%;
+  background: transparent;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+}
+
+.track {
+  background: lightblue;
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.animate-track {
+  background: rgb(204, 204, 204);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(0%);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+  .play-control {
+    width: 80%;
+  }
+}
+/* song */
+.song-container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.song-container img {
+  width: 20%;
+}
+.song-container h2 {
+  padding: 3rem 1rem 1rem 1rem;
+}
+.song-container h3 {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .song-container img {
+    width: 60%;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotateSong {
+  animation: rotate 20s linear forwards infinite;
+}
+
+/*nav */
+h1 {
+  color: rgb(9, 70, 9);
+  font-size: 2.5rem;
+  margin: 2rem;
+}
+
+h4 {
+  color: rgb(9, 70, 9);
+  font-size: 1.7rem;
+}
+
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 2rem;
+}
+nav button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+}
+nav button:hover {
+  background: rgb(89, 219, 77);
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  nav button {
+    z-index: 10;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy", sans-serif;
+}
+
+body {
+  background: rgb(231, 235, 214);
+  background: linear-gradient(
+    180deg,
+    rgb(205, 255, 207) 0%,
+    rgb(0, 255, 51) 100%
+  );
+}
+
+h2,
+h3 {
+  color: #133a1b;
+}
+
+h3,
+h4 {
+  font-weight: 600;
+}
+
+button {
+  font-weight: 700;
+}
+
+/* General styles for the account section */
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: right; /* Align items to the right */
+  gap: 1rem; /* Add spacing between elements */
+  margin-right: 2.5rem; /* Adjust margin to bring it closer to the right border */
+  margin-left: auto;
+}
+
+.account img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.account button {
+  background-color: #4caf50; /* Green background */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-wrap: nowrap;
+}
+
+.account button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .account {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    gap: 0.5rem; /* Reduce spacing between elements */
+    margin-right: 0; /* Remove right margin for smaller screens */
+  }
+
+  .account img {
+    margin-bottom: 0.5rem; /* Add spacing below the profile picture */
+  }
+
+  .account button {
+    width: 100%; /* Full-width buttons */
+    text-align: center;
+  }
+}
