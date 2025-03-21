@@ -11,6 +11,8 @@
   transform: translateX(-100%);
   transition: all 0.2s ease;
   opacity: 0;
+  display: none;
+  transition: all 0.3s ease;
 }
 .library h2 {
   padding: 2rem;
@@ -28,9 +30,7 @@
 .library-song .song-description {
   width: 60%;
 }
-.library-song .rmv-button {
-  width: 10%;
-}
+
 .library-song:hover {
   background: rgb(255, 230, 255);
   cursor: pointer;
@@ -394,4 +394,38 @@ button {
     width: 100%; /* Full-width buttons */
     text-align: center;
   }
+}
+
+.folder-selector {
+  position: absolute; /* Position it relative to the parent container */
+  top: 3rem; /* Center vertically */
+  left: 10rem; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 1rem; /* Add padding for spacing */
+  border-radius: 1rem; /* Rounded corners */
+  z-index: 10; /* Ensure it appears on top of other elements */
+}
+
+.folder-selector button {
+  margin: 0.5rem; /* Add spacing between buttons */
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #489cef;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.folder-selector button.active {
+  background-color: #185da1; /* Highlight the active button */
+}
+
+.folder-selector button:hover {
+  background-color: #1e90ff; /* Add hover effect */
+}
+
+.library.active {
+  display: block;
 }

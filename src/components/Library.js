@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid"; // For generating unique file names
 const defaultCoverPath =
   "https://mtwoqmnswxvrvpoxbcgw.supabase.co/storage/v1/object/public/uploads/covers/";
 const defaultAudioPath =
-  "https://mtwoqmnswxvrvpoxbcgw.supabase.co/storage/v1/object/public/uploads/songs/";
+  "https://mtwoqmnswxvrvpoxbcgw.supabase.co/storage/v1/object/public/uploads/";
 
 const Library = ({
   songs,
@@ -24,6 +24,7 @@ const Library = ({
   showForm,
   showLibraryIcon,
   setShowLibraryIcon,
+  selectedFolder,
 }) => {
   const handleAddSong = () => {
     const songToAdd = {
@@ -58,7 +59,9 @@ const Library = ({
             style={{ width: "2rem", height: "2rem" }}
           />
         </button>
-        <h2 style={{ color: "white" }}>All songs</h2>
+        <h2 style={{ color: "white" }}>
+          {selectedFolder !== "favorites" ? "All songs" : "Favorites"}
+        </h2>
         <button className="add-song" onClick={() => setShowForm(true)}>
           <img
             className="button-icon"
@@ -75,6 +78,7 @@ const Library = ({
             setNewSong={setNewSong}
             setShowForm={setShowForm}
             handleAddSong={handleAddSong}
+            selectedFolder={selectedFolder}
           />
         )}
       </div>
@@ -97,7 +101,13 @@ const Library = ({
   );
 };
 
-function AddSongForm({ newSong, setNewSong, setShowForm, handleAddSong }) {
+function AddSongForm({
+  newSong,
+  setNewSong,
+  setShowForm,
+  handleAddSong,
+  selectedFolder,
+}) {
   const handleFileChange = (e) => {
     const file = e.target.files[0]; // Get the selected file
     if (file) {
@@ -117,14 +127,14 @@ function AddSongForm({ newSong, setNewSong, setShowForm, handleAddSong }) {
       const songUUID = uuidv4();
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from("uploads")
-        .upload(`songs/${songUUID}`, newSong.audioFile);
+        .upload(`${selectedFolder}/${songUUID}`, newSong.audioFile);
 
       if (uploadError) {
         console.error("Error uploading file:", uploadError);
         alert("Failed to upload file.");
         return;
       } else {
-        newSong.audio = defaultAudioPath + `${songUUID}`;
+        newSong.audio = defaultAudioPath + `${selectedFolder}/${songUUID}`;
       }
 
       // Upload the cover image to Supabase Storage if cover is provided
@@ -149,7 +159,7 @@ function AddSongForm({ newSong, setNewSong, setShowForm, handleAddSong }) {
 
       // Insert the new song into the database
       const { data: dbData, error: dbError } = await supabase
-        .from("songs") // Replace with your database table name
+        .from(`${selectedFolder}`) // Replace with your database table name
         .insert([
           {
             name: updatedSong.name,

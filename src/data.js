@@ -1,16 +1,16 @@
 import supabase from "./supabase";
 
-async function getData(setSongs, setIsLoading) {
+async function getData(selectedFolder, setSongs, setIsLoading) {
   try {
     setIsLoading(true);
 
     const { data: fetchedSongs, error } = await supabase
-      .from("songs")
+      .from(selectedFolder) // Use the selected folder (table name)
       .select("id, name, artist, cover, audio");
 
     if (error) {
-      console.error("Error fetching songs", error);
-      alert("An error occurred while fetching songs");
+      console.error(`Error fetching songs from ${selectedFolder}`, error);
+      alert(`An error occurred while fetching songs from ${selectedFolder}`);
     } else {
       setSongs(fetchedSongs);
     }

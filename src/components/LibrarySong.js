@@ -53,12 +53,6 @@ const LibrarySong = ({
         <h3>{song.name}</h3>
         <h4>{song.artist}</h4>
       </div>
-      <button
-        className="rmv-btn"
-        img
-        src={`${process.env.PUBLIC_URL}/remove.png`}
-        alt="Remove"
-      ></button>
     </div>
   );
 };
