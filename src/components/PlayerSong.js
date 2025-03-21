@@ -20,7 +20,6 @@ const Player = ({
   id,
   setSongs,
 }) => {
-  //useEffect
   const activeLibraryHandler = (nextPrev) => {
     const newSongs = songs.map((song) => {
       if (song.id === nextPrev.id) {
@@ -36,58 +35,63 @@ const Player = ({
       }
     });
     setSongs(newSongs);
-    console.log("Hey from useEffect form player JS");
   };
-  //Event Handlers
+
   const dragHandler = (e) => {
     audioRef.current.currentTime = e.target.value;
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
+
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(!isPlaying);
     } else {
-      audioRef.current.play();
-      setIsPlaying(!isPlaying);
+      try {
+        audioRef.current.play();
+        setIsPlaying(!isPlaying);
+      } catch (error) {
+        console.error("Error playing the audio:", error);
+      }
     }
   };
 
   const getTime = (time) =>
     Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2);
+
   const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+
     if (direction === "skip-forward") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     }
+
     if (direction === "skip-back") {
       if ((currentIndex - 1) % songs.length === -1) {
         await setCurrentSong(songs[songs.length - 1]);
-        // playAudio(isPlaying, audioRef);
         activeLibraryHandler(songs[songs.length - 1]);
-
+        audioRef.current.load();
+        if (isPlaying) audioRef.current.play();
         return;
       }
       await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex - 1) % songs.length]);
     }
+
+    audioRef.current.load();
     if (isPlaying) audioRef.current.play();
   };
-  //adding the styles
+
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`,
   };
+
   return (
     <div className="player">
       <div className="time-control">
         <p>{getTime(songInfo.currentTime)}</p>
-        <div
-          style={{
-            background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
-          }}
-          className="track"
-        >
+        <div className="track">
           <input
             min={0}
             max={songInfo.duration || 0}
@@ -121,7 +125,6 @@ const Player = ({
             icon={faPause}
           />
         )}
-
         <FontAwesomeIcon
           onClick={() => skipTrackHandler("skip-forward")}
           size="2x"

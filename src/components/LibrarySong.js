@@ -1,5 +1,3 @@
-// FileName: LibrarySong.js
-
 import React from "react";
 const LibrarySong = ({
   song,
@@ -11,8 +9,10 @@ const LibrarySong = ({
   id,
 }) => {
   const songSelectHandler = async () => {
+    // Set the current song
     await setCurrentSong(song);
-    //active
+
+    // Update the active state of songs
     const newSongs = songs.map((song) => {
       if (song.id === id) {
         return {
@@ -27,9 +27,22 @@ const LibrarySong = ({
       }
     });
     setSongs(newSongs);
-    //check if song is playing
-    if (isPlaying) audioRef.current.play();
+
+    // Check if the song is playing and handle playback
+    if (isPlaying) {
+      audioRef.current.pause(); // Pause the current song
+      audioRef.current.load(); // Reload the audio element with the new song
+      audioRef.current.play().catch((error) => {
+        if (error.name !== "AbortError") {
+          console.error("Error playing the song:", error);
+        }
+      });
+    } else {
+      // If not playing, ensure the audio is loaded
+      audioRef.current.load();
+    }
   };
+
   return (
     <div
       onClick={songSelectHandler}
@@ -40,6 +53,12 @@ const LibrarySong = ({
         <h3>{song.name}</h3>
         <h4>{song.artist}</h4>
       </div>
+      <button
+        className="rmv-btn"
+        img
+        src={`${process.env.PUBLIC_URL}/remove.png`}
+        alt="Remove"
+      ></button>
     </div>
   );
 };
