@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - Music Web App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/player.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <span class="logo-text">Music App</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+          <a href="search.html" class="nav-item active">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </a>
+          <a href="library.html" class="nav-item">
+            <i class="fa-solid fa-book"></i>
+            <span>Your Library</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <a href="create-playlist.html" class="nav-item">
+            <i class="fa-solid fa-square-plus"></i>
+            <span>Create Playlist</span>
+          </a>
+          <a href="liked-songs.html" class="nav-item">
+            <i class="fa-solid fa-heart"></i>
+            <span>Liked Songs</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-playlists">
+        <h3>Playlists</h3>
+        <div class="playlist-list">
+          <a href="playlist.html?id=1" class="playlist-item">Discover Weekly</a>
+          <a href="playlist.html?id=2" class="playlist-item">Today's Top Hits</a>
+          <a href="playlist.html?id=3" class="playlist-item">Chill Vibes</a>
+          <a href="playlist.html?id=4" class="playlist-item">Rock Classics</a>
+          <a href="playlist.html?id=5" class="playlist-item">Jazz Vibes</a>
+          <a href="playlist.html?id=6" class="playlist-item">Hip-Hop Hits</a>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="login-button">
+          <i class="fa-solid fa-user"></i>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="search-page">
+        <h1 class="page-title">Search</h1>
+        
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" class="search-input" placeholder="What do you want to listen to?">
+        </div>
+
+        <div id="search-results" class="search-results">
+          <!-- Initial state: Browse all -->
+          <div id="browse-all">
+            <h2 class="section-title">Browse all</h2>
+            <div class="genre-grid">
+              <a href="genre.html?name=pop" class="genre-card pop">
+                <h3>Pop</h3>
+              </a>
+              <a href="genre.html?name=rock" class="genre-card rock">
+                <h3>Rock</h3>
+              </a>
+              <a href="genre.html?name=hip-hop" class="genre-card hip-hop">
+                <h3>Hip-Hop</h3>
+              </a>
+              <a href="genre.html?name=electronic" class="genre-card electronic">
+                <h3>Electronic</h3>
+              </a>
+              <a href="genre.html?name=classical" class="genre-card classical">
+                <h3>Classical</h3>
+              </a>
+              <a href="genre.html?name=jazz" class="genre-card jazz">
+                <h3>Jazz</h3>
+              </a>
+              <a href="genre.html?name=r&b" class="genre-card rnb">
+                <h3>R&B</h3>
+              </a>
+              <a href="genre.html?name=country" class="genre-card country">
+                <h3>Country</h3>
+              </a>
+              <a href="genre.html?name=latin" class="genre-card latin">
+                <h3>Latin</h3>
+              </a>
+              <a href="genre.html?name=k-pop" class="genre-card k-pop">
+                <h3>K-Pop</h3>
+              </a>
+            </div>
+          </div>
+
+          <!-- Search results will be dynamically inserted here -->
+          <div id="search-results-container" class="hidden">
+            <h2 class="section-title">Top results for "<span id="search-query"></span>"</h2>
+            <div class="track-grid" id="search-tracks">
+              <!-- Tracks will be dynamically inserted here -->
+            </div>
+          </div>
+
+          <!-- No results state -->
+          <div id="no-results" class="no-results hidden">
+            <h2>No results found for "<span id="no-results-query"></span>"</h2>
+            <p>Please try another search term.</p>
+          </div>
+
+          <!-- Loading state -->
+          <div id="search-loading" class="loading-container hidden">
+            <div class="loading-grid">
+              <div class="loading-item">
+                <div class="loading-image"></div>
+                <div class="loading-title"></div>
+                <div class="loading-subtitle"></div>
+              </div>
+              <div class="loading-item">
+                <div class="loading-image"></div>
+                <div class="loading-title"></div>
+                <div class="loading-subtitle"></div>
+              </div>
+              <div class="loading-item">
+                <div class="loading-image"></div>
+                <div class="loading-title"></div>
+                <div class="loading-subtitle"></div>
+              </div>
+              <div class="loading-item">
+                <div class="loading-image"></div>
+                <div class="loading-title"></div>
+                <div class="loading-subtitle"></div>
+              </div>
+              <div class="loading-item">
+                <div class="loading-image"></div>
+                <div class="loading-title"></div>
+                <div class="loading-subtitle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Player -->
+    <div class="player">
+      <div class="player-left">
+        <div class="now-playing">
+          <div class="now-playing-art">
+            <img src="images/placeholder.jpg" alt="Album cover" id="current-track-image">
+          </div>
+          <div class="now-playing-info">
+            <div class="track-title" id="current-track-title">Select a track</div>
+            <div class="track-artist" id="current-track-artist">Music App</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="player-controls">
+          <button class="control-button"><i class="fa-solid fa-shuffle"></i></button>
+          <button class="control-button"><i class="fa-solid fa-backward-step"></i></button>
+          <button class="control-button play-button" id="play-button">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="control-button"><i class="fa-solid fa-forward-step"></i></button>
+          <button class="control-button"><i class="fa-solid fa-repeat"></i></button>
+        </div>
+        <div class="progress-container">
+          <span class="time current-time" id="current-time">0:00</span>
+          <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+          </div>
+          <span class="time total-time" id="total-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <button class="control-button"><i class="fa-solid fa-list"></i></button>
+        <div class="volume-container">
+          <i class="fa-solid fa-volume-high"></i>
+          <div class="volume-bar">
+            <div class="volume" id="volume"></div>
+          </div>
+        </div>
+        <button class="control-button"><i class="fa-solid fa-maximize"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="audio-player"></audio>
+
+  <!-- Scripts -->
+  <script src="js/player.js"></script>
+  <script type="module" src="js/search.js"></script>
+</body>
+</html>

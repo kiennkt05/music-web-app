@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - Music Web App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <h1>Music App</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="library.html" class="active"><i class="fas fa-book"></i> Library</a></li>
+          <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
+        </ul>
+      </nav>
+      <div class="playlists-section">
+        <h2>Your Playlists</h2>
+        <div id="playlists" class="playlists-container">
+          <!-- Playlists will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search for songs, artists...">
+          <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="user-menu">
+          <button id="login-button">Login</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="library-tabs">
+          <button class="tab-button active" data-tab="playlists">Playlists</button>
+          <button class="tab-button" data-tab="favorites">Favorites</button>
+          <button class="tab-button" data-tab="history">History</button>
+        </div>
+
+        <div class="tab-content" id="playlists-tab">
+          <div class="library-header">
+            <h2>Your Playlists</h2>
+            <button id="create-playlist-button"><i class="fas fa-plus"></i> Create Playlist</button>
+          </div>
+          <div id="user-playlists" class="playlists-grid">
+            <!-- User playlists will be loaded here -->
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="favorites-tab">
+          <h2>Liked Songs</h2>
+          <div id="favorites-list" class="track-list">
+            <!-- Favorite tracks will be loaded here -->
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="history-tab">
+          <h2>Recently Played</h2>
+          <div id="history-list" class="track-list">
+            <!-- History tracks will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player -->
+    <div id="player" class="player">
+      <div class="track-info">
+        <img id="track-cover" src="/images/default-cover.jpg" alt="Track Cover">
+        <div>
+          <h3 id="track-title">No track playing</h3>
+          <p id="track-artist">-</p>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button id="prev-track"><i class="fas fa-step-backward"></i></button>
+        <button id="play-pause"><i class="fas fa-play"></i></button>
+        <button id="next-track"><i class="fas fa-step-forward"></i></button>
+      </div>
+      <div class="progress-container">
+        <span id="current-time">0:00</span>
+        <progress id="progress-bar" value="0" max="100"></progress>
+        <span id="total-time">0:00</span>
+      </div>
+      <div class="volume-control">
+        <i class="fas fa-volume-up"></i>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- App Scripts -->
+  <script src="js/supabase.js" type="module"></script>
+  <script src="js/library.js" type="module"></script>
+</body>
+</html>

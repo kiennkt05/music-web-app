@@ -1,0 +1,274 @@
+/* Playlist Page Styles */
+.playlist-page {
+  padding-bottom: 2rem;
+}
+
+.playlist-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .playlist-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.playlist-artwork {
+  width: 100%;
+  max-width: 15rem;
+  aspect-ratio: 1;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .playlist-artwork {
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+.playlist-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playlist-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .playlist-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.playlist-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.playlist-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .playlist-title {
+    font-size: 3rem;
+  }
+}
+
+.playlist-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.playlist-creator {
+  font-weight: 500;
+}
+
+.playlist-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.play-button {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+}
+
+.play-button i {
+  font-size: 1.5rem;
+}
+
+/* Tracks */
+.playlist-tracks {
+  margin-top: 2rem;
+}
+
+.tracks-header {
+  display: grid;
+  grid-template-columns: [index] 16px [title] 4fr [album] 3fr [duration] 1fr;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tracks-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-item {
+  display: grid;
+  grid-template-columns: [index] 16px [title] 4fr [album] 3fr [duration] 1fr;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.track-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-index {
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.track-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.track-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.track-details {
+  min-width: 0;
+}
+
+.track-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-album {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.track-like {
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.track-like:hover {
+  color: var(--text-primary);
+}
+
+.track-like.active {
+  color: var(--primary);
+}
+
+.track-duration {
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* Loading state */
+.playlist-loading {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.playlist-loading-art {
+  width: 15rem;
+  height: 15rem;
+  background-color: var(--card-bg);
+  animation: pulse 1.5s infinite;
+}
+
+.playlist-loading-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-self: flex-end;
+}
+
+.playlist-loading-title {
+  width: 15rem;
+  height: 3rem;
+  background-color: var(--card-bg);
+  animation: pulse 1.5s infinite;
+}
+
+.playlist-loading-meta {
+  width: 10rem;
+  height: 1rem;
+  background-color: var(--card-bg);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

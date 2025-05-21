@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist - iTunes Music Web App</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/player.css">
+  <link rel="stylesheet" href="css/artist.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <span class="logo-text">iTunes Music</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <a href="index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+          <a href="search.html" class="nav-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </a>
+          <a href="library.html" class="nav-item">
+            <i class="fa-solid fa-book"></i>
+            <span>Your Library</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <a href="create-playlist.html" class="nav-item">
+            <i class="fa-solid fa-square-plus"></i>
+            <span>Create Playlist</span>
+          </a>
+          <a href="liked-songs.html" class="nav-item">
+            <i class="fa-solid fa-heart"></i>
+            <span>Liked Songs</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-playlists">
+        <h3>Playlists</h3>
+        <div class="playlist-list">
+          <a href="playlist.html?id=1" class="playlist-item">Discover Weekly</a>
+          <a href="playlist.html?id=2" class="playlist-item">Today's Top Hits</a>
+          <a href="playlist.html?id=3" class="playlist-item">Chill Vibes</a>
+          <a href="playlist.html?id=4" class="playlist-item">Rock Classics</a>
+          <a href="playlist.html?id=5" class="playlist-item">Jazz Vibes</a>
+          <a href="playlist.html?id=6" class="playlist-item">Hip-Hop Hits</a>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="login-button">
+          <i class="fa-solid fa-user"></i>
+          <span>Sign In</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="artist-page">
+        <!-- Artist header -->
+        <div class="artist-header">
+          <div class="artist-background"></div>
+          <div class="artist-info">
+            <div class="artist-image">
+              <img id="artist-image" src="images/placeholder.jpg" alt="Artist">
+            </div>
+            <div class="artist-details">
+              <p class="artist-label">Artist</p>
+              <h1 id="artist-name" class="artist-name">Artist Name</h1>
+              <p id="artist-tracks-count" class="artist-meta">0 tracks available</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="artist-controls">
+          <button class="play-button">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="shuffle-button">
+            <i class="fa-solid fa-shuffle"></i>
+            Shuffle
+          </button>
+          <button class="like-button">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <button class="more-button">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert alert-info">
+          <i class="fa-solid fa-circle-info"></i>
+          <div>This is a demo feature. In a real app, artist data would be fetched from the iTunes API.</div>
+        </div>
+
+        <!-- Popular Tracks -->
+        <section class="artist-section">
+          <h2 class="section-title">Popular</h2>
+          <div id="popular-tracks" class="popular-tracks">
+            <!-- Tracks will be inserted here -->
+          </div>
+        </section>
+
+        <!-- Albums -->
+        <section class="artist-section">
+          <h2 class="section-title">Albums</h2>
+          <div class="feature-placeholder">
+            <p class="placeholder-title">This feature requires backend integration</p>
+            <p class="placeholder-text">Album information would be fetched from the iTunes API and displayed here.</p>
+          </div>
+        </section>
+
+        <!-- More Tracks -->
+        <section class="artist-section">
+          <div class="section-header">
+            <h2 class="section-title">More by <span id="artist-name-more">Artist</span></h2>
+            <a href="#" class="section-link">See all</a>
+          </div>
+          <div id="more-tracks" class="track-grid">
+            <!-- Tracks will be inserted here -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Player -->
+    <div class="player">
+      <div class="player-left">
+        <div class="now-playing">
+          <div class="now-playing-art">
+            <img src="images/placeholder.jpg" alt="Album cover" id="current-track-image">
+          </div>
+          <div class="now-playing-info">
+            <div class="track-title" id="current-track-title">Select a track</div>
+            <div class="track-artist" id="current-track-artist">iTunes Music</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="player-controls">
+          <button class="control-button"><i class="fa-solid fa-shuffle"></i></button>
+          <button class="control-button"><i class="fa-solid fa-backward-step"></i></button>
+          <button class="control-button play-button" id="play-button">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="control-button"><i class="fa-solid fa-forward-step"></i></button>
+          <button class="control-button"><i class="fa-solid fa-repeat"></i></button>
+        </div>
+        <div class="progress-container">
+          <span class="time current-time" id="current-time">0:00</span>
+          <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+          </div>
+          <span class="time total-time" id="total-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <button class="control-button"><i class="fa-solid fa-list"></i></button>
+        <div class="volume-container">
+          <i class="fa-solid fa-volume-high"></i>
+          <div class="volume-bar">
+            <div class="volume" id="volume"></div>
+          </div>
+        </div>
+        <button class="control-button"><i class="fa-solid fa-maximize"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="audio-player"></audio>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/artist.js"></script>
+</body>
+</html>

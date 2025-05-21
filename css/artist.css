@@ -1,0 +1,245 @@
+/* Artist Page Styles */
+.artist-page {
+  padding-bottom: 2rem;
+}
+
+.artist-header {
+  position: relative;
+  height: 20rem;
+  margin-bottom: 1.5rem;
+}
+
+.artist-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1));
+}
+
+.artist-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.artist-image {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+.artist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.artist-name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.artist-meta {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.artist-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0 2rem;
+}
+
+.play-button {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+}
+
+.play-button i {
+  font-size: 1.5rem;
+}
+
+.shuffle-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.shuffle-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.like-button,
+.more-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.like-button:hover,
+.more-button:hover {
+  color: var(--text-primary);
+}
+
+.artist-section {
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-link {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.section-link:hover {
+  text-decoration: underline;
+}
+
+.popular-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.popular-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.popular-track:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-number {
+  width: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.track-image {
+  width: 3rem;
+  height: 3rem;
+}
+
+.track-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-album {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-duration {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.feature-placeholder {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.placeholder-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.placeholder-text {
+  color: var(--text-secondary);
+}

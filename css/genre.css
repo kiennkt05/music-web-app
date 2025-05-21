@@ -1,0 +1,62 @@
+/* Genre Page Styles */
+.genre-page {
+  padding-bottom: 2rem;
+}
+
+.genre-description {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Loading state */
+.loading-container {
+  width: 100%;
+}
+
+.loading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.loading-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.loading-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--card-bg);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite;
+}
+
+.loading-title {
+  height: 1rem;
+  width: 80%;
+  background-color: var(--card-bg);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite;
+}
+
+.loading-subtitle {
+  height: 0.75rem;
+  width: 60%;
+  background-color: var(--card-bg);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

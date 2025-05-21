@@ -1,0 +1,291 @@
+/* Liked Songs Page Styles */
+.liked-songs-page {
+  padding-bottom: 2rem;
+}
+
+.liked-songs-header {
+  background: linear-gradient(to bottom, #e91429, #121212);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .liked-songs-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.liked-songs-artwork {
+  width: 12rem;
+  height: 12rem;
+  background-color: #e91429;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .liked-songs-artwork {
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+.liked-songs-artwork i {
+  font-size: 4rem;
+  color: white;
+}
+
+.liked-songs-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .liked-songs-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.playlist-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.liked-songs-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .liked-songs-title {
+    font-size: 3rem;
+  }
+}
+
+.liked-songs-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.user-name {
+  font-weight: 500;
+}
+
+.separator {
+  color: var(--text-secondary);
+}
+
+.songs-count {
+  color: var(--text-secondary);
+}
+
+.liked-songs-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0 2rem;
+}
+
+.play-button {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+}
+
+.play-button i {
+  font-size: 1.5rem;
+}
+
+.shuffle-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.shuffle-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.liked-songs-tracks {
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.tracks-header {
+  display: grid;
+  grid-template-columns: [index] 16px [title] 4fr [album] 3fr [duration] 1fr;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tracks-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-item {
+  display: grid;
+  grid-template-columns: [index] 16px [title] 4fr [album] 3fr [duration] 1fr;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.track-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-index {
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.track-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.track-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.track-details {
+  min-width: 0;
+}
+
+.track-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-album {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.track-like {
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.track-like:hover {
+  color: var(--text-primary);
+}
+
+.track-like.active {
+  color: var(--primary);
+}
+
+.track-duration {
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-state h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.browse-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: black;
+  border-radius: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.browse-button:hover {
+  transform: scale(1.05);
+}
